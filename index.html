@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Pumpkin! 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- SCREEN 1: Sweet Entrance -->
+  <section id="screen-welcome" class="screen active">
+    <div class="floating-emojis" id="floating-emojis"></div>
+    <div class="welcome-content">
+      <div class="sparkle-ring">
+        <span class="big-cake">🎂</span>
+      </div>
+      <h1 class="welcome-title">Happy Birthday<br><span class="name-highlight">Pumpkin!</span></h1>
+      <p class="welcome-sub">Someone made something really special just for you 💖</p>
+      <button class="btn-main pulse" onclick="goToScreen('screen-gift')">
+        🎁 Open Your Gift
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: Gift Box / Fake Loading -->
+  <section id="screen-gift" class="screen">
+    <div class="gift-container">
+      <div class="gift-box" id="gift-box" onclick="openGift()">
+        <div class="gift-lid" id="gift-lid">
+          <div class="gift-bow"></div>
+        </div>
+        <div class="gift-base"></div>
+      </div>
+      <p class="tap-text" id="tap-text">Tap the gift to open! 🎁</p>
+      <div class="loading-bar-container" id="loading-container" style="display:none;">
+        <p class="loading-text" id="loading-text">Loading your surprise...</p>
+        <div class="loading-bar">
+          <div class="loading-fill" id="loading-fill"></div>
+        </div>
+        <p class="loading-percent" id="loading-percent">0%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: APRIL FOOLS REVEAL -->
+  <section id="screen-fooled" class="screen">
+    <div class="fooled-content">
+      <h1 class="glitch" data-text="APRIL FOOLS!">APRIL FOOLS!</h1>
+      <p class="fooled-sub">You really thought this was gonna be all sweet and romantic? 😂</p>
+      <div class="fool-emoji">🤡</div>
+      <p class="fooled-sub2">Nah Pumpkin, we got some <strong>TRUTHS</strong> to deliver first...</p>
+      <button class="btn-main btn-danger" onclick="goToScreen('screen-roast1')">
+        😈 Bring It On
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 4: Roast Carousel -->
+  <section id="screen-roast1" class="screen">
+    <div class="roast-card">
+      <div class="roast-number">ROAST #1</div>
+      <div class="roast-emoji">👵</div>
+      <h2 class="roast-text">Congrats Darsini, you're officially <span class="highlight-red">OLD</span> now.</h2>
+      <p class="roast-detail">You're already a year older than me and it shows. Your back probably hurts just from reading this. Don't lie. 😭</p>
+      <button class="btn-main btn-danger" onclick="goToScreen('screen-roast2')">Next Roast →</button>
+    </div>
+  </section>
+
+  <section id="screen-roast2" class="screen">
+    <div class="roast-card">
+      <div class="roast-number">ROAST #2</div>
+      <div class="roast-emoji">🦴</div>
+      <h2 class="roast-text">Your bones when you stand up now:</h2>
+      <div class="crack-text" id="crack-text"></div>
+      <p class="roast-detail">That's not bubble wrap, that's your <span class="highlight-red">spine</span> Pumpkin 💀</p>
+      <button class="btn-main btn-danger" onclick="goToScreen('screen-roast3')">More Pain →</button>
+    </div>
+  </section>
+
+  <section id="screen-roast3" class="screen">
+    <div class="roast-card">
+      <div class="roast-number">ROAST #3</div>
+      <div class="roast-emoji">😴</div>
+      <h2 class="roast-text">Your bedtime is now <span class="highlight-red">9 PM</span></h2>
+      <p class="roast-detail">And you'll still be tired. Meanwhile I'm younger than you and still have energy at midnight 😌💅</p>
+      <div class="sleep-meter">
+        <span>Darsini's Energy Level:</span>
+        <div class="meter-bar">
+          <div class="meter-fill" style="width: 8%"></div>
+        </div>
+        <span class="meter-label">Basically Dead</span>
+      </div>
+      <button class="btn-main btn-danger" onclick="goToScreen('screen-roast4')">I Can Take More →</button>
+    </div>
+  </section>
+
+  <section id="screen-roast4" class="screen">
+    <div class="roast-card">
+      <div class="roast-number">ROAST #4</div>
+      <div class="roast-emoji">🧓</div>
+      <h2 class="roast-text">Things Darsini says now:</h2>
+      <ul class="old-quotes">
+        <li>"Wah, why everything so expensive ah?"</li>
+        <li>"Last time was better lah"</li>
+        <li>"I cannot eat spicy anymore..."</li>
+        <li>"Who is this celebrity? I don't know them"</li>
+        <li>"Can turn down the music or not?"</li>
+      </ul>
+      <button class="btn-main btn-danger" onclick="goToScreen('screen-roast5')">One More →</button>
+    </div>
+  </section>
+
+  <section id="screen-roast5" class="screen">
+    <div class="roast-card">
+      <div class="roast-number">FINAL ROAST</div>
+      <div class="roast-emoji">⚰️</div>
+      <h2 class="roast-text">Finish lah Pumpkin. It's downhill from here.</h2>
+      <p class="roast-detail">Next year you'll need to stretch before blowing out candles. 🕯️</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-age">Last Year</span>
+          <span class="timeline-desc">Still had hope ✨</span>
+        </div>
+        <div class="timeline-item active-tl">
+          <span class="timeline-age">This Year</span>
+          <span class="timeline-desc">Back pain unlocked 🔓</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-age">Next Year</span>
+          <span class="timeline-desc">Knee pain DLC drops 🎮</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-age">5 Years</span>
+          <span class="timeline-desc">Full auntie mode activated 👜</span>
+        </div>
+      </div>
+      <button class="btn-main btn-danger" onclick="showError()">Am I Done? 😭</button>
+    </div>
+  </section>
+
+  <!-- SCREEN: Fake Error Popup -->
+  <section id="screen-error" class="screen">
+    <div class="error-window">
+      <div class="error-titlebar">
+        <span>⚠️ System Error</span>
+        <span class="error-close" onclick="goToScreen('screen-real')">✕</span>
+      </div>
+      <div class="error-body">
+        <div class="error-icon">⚠️</div>
+        <div class="error-msg">
+          <p><strong>Pumpkin.exe</strong> has encountered a critical error:</p>
+          <p class="error-code">ERROR 404: Youth Not Found</p>
+          <p>The system has detected that this user is <strong>too old</strong> to continue running.</p>
+          <p class="error-small">Would you like to accept your fate?</p>
+        </div>
+      </div>
+      <div class="error-buttons">
+        <button class="btn-error" onclick="goToScreen('screen-real')">OK, I'm Old 😢</button>
+        <button class="btn-error" onclick="denial()">Deny (won't work)</button>
+      </div>
+      <p class="denial-msg" id="denial-msg"></p>
+    </div>
+  </section>
+
+  <!-- SCREEN: Real Birthday Message -->
+  <section id="screen-real" class="screen">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="real-content">
+      <h1 class="real-title">Okay okay, for real now... 💕</h1>
+      <div class="real-card">
+        <h2 class="real-name">Happy Birthday, Darsini 🎂🎉</h2>
+        <p class="real-msg">
+          Yes I roasted you, but you already know — I could never not do something for your birthday. Even now. Even like this.
+        </p>
+        <p class="real-msg">
+          You're not old — you're <span class="highlight-gold">✨ vintage ✨</span> and that's basically premium, right? (Still older than me though 😂)
+        </p>
+
+        <div class="memory-section">
+          <div class="memory-label">🍗 A memory I'll never forget</div>
+          <p class="memory-text">
+            Our first date at Texas Chicken after school. I was sitting across from you and my legs would not stop trembling under the table. I was so nervous because this beautiful girl was sitting right in front of me and I couldn't believe she was actually there — with me.
+          </p>
+          <p class="memory-text">
+            I don't think you knew how fast my heart was beating that day. Or maybe you did and you just let me be awkward. Either way… I'll never forget it. 🤍
+          </p>
+        </div>
+
+        <p class="real-msg">
+          You are the past love that I could never get over. And honestly, I don't think I ever will. You mean so much to me, Darsini — more than I could ever put into words on a silly website.
+        </p>
+        <p class="real-msg">
+          I don't know what we are or what we'll be. I just know that I want you to be happy — even if it's without me by your side. That's all I've ever wanted for you. 💕
+        </p>
+        <p class="real-msg">
+          But if you ever want a friend who will always care about you, always remember your birthday, and always roast you for being older than me…
+        </p>
+        <p class="real-msg love-msg">
+          I'm right here. I always will be, Pumpkin. 🤍
+        </p>
+        <div class="heart-shower" id="heart-shower"></div>
+        <div class="real-sign">— With all the love I still carry, Zoqu 🤗</div>
+      </div>
+      <button class="btn-main btn-love" onclick="replayAll()">🔄 Replay The Roasts</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
